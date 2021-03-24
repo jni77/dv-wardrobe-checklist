@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Quickly generate a list of clothing missing from your Dappervolk wardrobe!">
+		<title>Dappervolk Wardrobe Checklist Tool</title>
+
+		<link rel="icon" type="image/png" href="./src/favicon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <style>
+      .copy {font-size: 9px; line-height: normal; resize: none;}
+      .card {padding: 0;border-radius: 0;}
+    </style>
+  </head>
+	<body>
+    <nav class="mb-3 navbar navbar-dark bg-secondary">
+      <a href="./" class="navbar-brand">Dappervolk Wardrobe Checklist Tool</a>
+    </nav>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md">
+          <p>Get a quick list of clothing missing from your wardrobe. This tool will also generate HTML and CSS you can put on a pet's page.</p>
+        </div>
+        <div class="col-md">
+          <ol>
+            <li>Visit your <a href="https://dappervolk.com/inventory/wardrobe">Manage Wardrobe</a> page.</li>
+            <li>On that page, right click and select <strong>View page source</strong>.</li>
+            <li>Select all of the text (CTRL + A) and copy it (CTRL + C).</li>
+            <li>Return to this page and paste it below (CTRL + V).</li>
+            <li>Submit the form to see what clothes are missing from your wardrobe!</li>
+          </ol>
+        </div>
+      </div>
+      <form class="form-group" id="form" action="#results">
+        <div class="row">
+          <div class="col-sm">
+            <label for="wardrobe-input">Paste wardrobe source code here:</label>
+            <textarea class="form-control" id="wardrobe-input" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="row align-items-center mt-1 mt-sm-0">
+          <div class="col-sm">
+            <select class="form-control" id="worldhopper-class">
+              <option value="all">All class-exclusives</option>
+              <option value="animal">Animal</option>
+              <option value="elven">Elven</option>
+              <option value="galactic">Galactic</option>
+              <option value="human">Human</option>
+            </select>
+          </div>
+          <div class="col-sm">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="exclude-limited">
+              <label class="form-check-label" for="exclude-limited">Exclude Limited items</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="exclude-seasonal">
+              <label class="form-check-label" for="exclude-seasonal">Exclude Seasonal items</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <input type="submit" class="btn btn-secondary btn-block" value="Show me what I'm missing!">
+          </div>
+        </div>
+      </form>
+      <div id="results"></div>
+      <div id="petpage-coding" class="mt-3" style="display: none;">
+        <h3>Pet page coding<a href="#results" class="float-right small">(back to top)</a></h3>
+        <p>Copy and paste the coding below onto a pet's page to share your checklist! <strong>Please note that pet pages have a character limit of 65535</strong>. Put the HTML in the HTML box and the CSS in the CSS box. I've provided a plaintext list just in case your HTML exceeds that maximum.</p>
+        <div class="row">
+          <div class="col-sm-4 input-group">
+            <label for="html-box" class="w-100">HTML</label>
+            <textarea class="form-control copy" id="html-box"></textarea>
+            <div class="input-group-append">
+              <button class="btn btn-secondary copy-btn" type="button">Copy</button>
+            </div>
+            <small class="w-100 counter"></small>
+          </div>
+          <div class="col-sm-4 input-group">
+            <label for="plaintext-box" class="w-100">Plaintext</label>
+            <textarea class="form-control copy" id="plaintext-box"></textarea>
+            <div class="input-group-append">
+              <button class="btn btn-secondary copy-btn" type="button">Copy</button>
+            </div>
+            <small class="w-100 counter"></small>
+          </div>
+          <div class="col-sm-4 input-group">
+            <label for="css-box" class="w-100">CSS</label>
+            <textarea class="form-control copy" id="css-box">.body{height:100%;width:100%;overflow:auto;background:#eab490 url(/img/bg.jpg)}.wrapper{width:1160px;max-width:96%;margin:50px auto;background:#f8d0a1;border:4px solid #fff;border-radius:120px}.content{padding:40px;text-align:center;font-family:"Roboto Condensed",Helvetica,Arial,sans-serif}h1,i{color:#936c59}ul{margin:0 -15px;padding:0}ul li{display:inline-block;vertical-align:top;width:150px;padding:0 15px;font-weight:700;margin-bottom:15px}b,i{display:block;font-weight:400}i{color:rgba(0,0,0,.6);font-style:normal;font-size:.8em}</textarea>
+            <div class="input-group-append">
+              <button class="btn btn-secondary copy-btn" type="button">Copy</button>
+            </div>
+            <small class="w-100">&#8203;</small>
+          </div>
+        </div>
+      </div>
+      <footer class="small text-muted mt-5">
+        <p>
+          Dappervolk and all related indicia are trademarks of Snail Games © 2016-2021<br>
+          Data taken from the <a href="https://dappervolk.com/forum/topic/2886-dv-data-mastersheet?page=3#post-1297941">DV Data Mastersheet</a>.<br>
+          Inspired by the <a href="http://www.jellyneo.net/avatars/">Jellyneo Avatar Checklist</a>.<br>
+          <a href="https://github.com/jni77/dv-wardrobe-checklist">Source code</a>
+        </p>
+      </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./src/site.js"></script>
+  </body>
+</html>
