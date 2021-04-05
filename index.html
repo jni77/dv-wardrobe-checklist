@@ -69,20 +69,13 @@
       </form>
       <div id="results"></div>
       <div id="petpage-coding" class="mt-3" style="display: none;">
-        <h3>Pet page coding<a href="#results" class="float-right small">(back to top)</a></h3>
-        <p>Copy and paste the coding below onto a pet's page to share your checklist! <strong>Please note that pet pages have a character limit of 65535</strong>. Put the HTML in the HTML box and the CSS in the CSS box. I've provided a plaintext list just in case your HTML exceeds that maximum.</p>
+        <a href="#results" class="float-right small">(back to top)</a>
+        <h3>Pet page coding</h3>
+        <p>Copy and paste the coding below onto a pet's page to share your checklist! <strong>Please note that pet pages have a character limit of 65535</strong>. Put the HTML in the HTML box and the CSS in the CSS box. (You should use both, otherwise it will not look good.) I've provided a plaintext list just in case your HTML exceeds that maximum.</p>
         <div class="row">
           <div class="col-sm-4 input-group">
             <label for="html-box" class="w-100">HTML</label>
             <textarea class="form-control copy" id="html-box"></textarea>
-            <div class="input-group-append">
-              <button class="btn btn-secondary copy-btn" type="button">Copy</button>
-            </div>
-            <small class="w-100 counter"></small>
-          </div>
-          <div class="col-sm-4 input-group">
-            <label for="plaintext-box" class="w-100">Plaintext</label>
-            <textarea class="form-control copy" id="plaintext-box"></textarea>
             <div class="input-group-append">
               <button class="btn btn-secondary copy-btn" type="button">Copy</button>
             </div>
@@ -95,6 +88,14 @@
               <button class="btn btn-secondary copy-btn" type="button">Copy</button>
             </div>
             <small class="w-100">&#8203;</small>
+          </div>
+          <div class="col-sm-4 input-group">
+            <label for="plaintext-box" class="w-100">Plaintext</label>
+            <textarea class="form-control copy" id="plaintext-box"></textarea>
+            <div class="input-group-append">
+              <button class="btn btn-secondary copy-btn" type="button">Copy</button>
+            </div>
+            <small class="w-100 counter"></small>
           </div>
         </div>
       </div>
