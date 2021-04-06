@@ -118,7 +118,7 @@ function generateCode(clothes) {
     small.addClass("text-danger").append("&emsp; ⚠ Character count exceeded!");
   } else small.removeClass("text-danger");
   small = $("#petpage-coding small.w-100")
-    .eq(1)
+    .eq(2)
     .text(txt.length + "/65535");
   if (txt.length > 65535) {
     small.addClass("text-danger").append("&emsp; ⚠ Character count exceeded!");
